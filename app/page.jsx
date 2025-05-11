@@ -4,6 +4,7 @@ const HomePage = () => {
   return (
     <div>
       <h1 className="text-3xl">Welcome</h1>
+      <h1 className="text-3xl text-blue-500">Hellow</h1>
       <Link href="/properties">Go To Properties</Link>
     </div>
   );
