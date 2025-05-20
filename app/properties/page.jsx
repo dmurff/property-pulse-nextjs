@@ -1,13 +1,12 @@
 import connectDB from "@/config/database";
 import PropertyCard from "@/components/PropertyCard";
-// import Property from "@/models/Property";
-import fetchProperties from "@/lib/fetchProperties";
+import Property from "@/models/Property";
 
 const PropertiesPage = async () => {
   await connectDB();
 
-  // const properties = await Property.find({}).lean();
-  const properties = await fetchProperties();
+  const properties = await Property.find({}).lean();
+  console.log("Properties:", properties);
   return (
     <section className="px-4 py-6">
       <div className="container-xl lg:container m-auto px-4 py-6">
