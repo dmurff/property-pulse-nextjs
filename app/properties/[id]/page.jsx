@@ -4,6 +4,7 @@ import Property from "@/models/Property";
 import PropertyHeaderImage from "@/components/PropertyHeaderImage";
 import Link from "next/link";
 import { FaArrowLeft } from "react-icons/fa";
+
 const PropertyPage = async ({ params }) => {
   await connectDB();
   const property = await Property.findById(params.id).lean();
