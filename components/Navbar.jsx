@@ -1,7 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
 import Image from "next/image";
-import logo from "@/assets/images/logo-white.png";
+import logo from "@/assets/images/logo.png";
 import profileDefault from "@/assets/images/profile.png";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -64,7 +64,14 @@ const Navbar = () => {
           <div className="flex flex-1 items-center justify-center md:items-stretch md:justify-start">
             {/* <!-- Logo --> */}
             <Link className="flex flex-shrink-0 items-center" href="/">
-              <Image className="h-10 w-auto" src={logo} alt="PropertyPulse" />
+              <Image
+                src={logo}
+                alt="PropertyPulse"
+                width={40}
+                height={40}
+                className="h-10 w-auto"
+                priority
+              />
 
               <span className="hidden md:block text-white text-2xl font-bold ml-2">
                 PropertyPulse
