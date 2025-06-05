@@ -1,6 +1,7 @@
 import GoogleProvider from "next-auth/providers/google";
 import connectDB from "@/config/database";
 import User from "@/models/User";
+import { getServerSession } from "next-auth/next";
 
 export const authOptions = {
   providers: [
@@ -47,4 +48,18 @@ export const authOptions = {
       return session;
     },
   },
+};
+
+export const getSessionUser = async () => {
+  try {
+    const session = await getServerSession(authOptions);
+    if (!session || !session.user) return null;
+    return {
+      userId: session.user.id,
+      email: session.user.email,
+    };
+  } catch (error) {
+    console.error("Error getting session:", error);
+    return null;
+  }
 };
